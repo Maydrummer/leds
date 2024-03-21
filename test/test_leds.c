@@ -43,10 +43,17 @@ void test_apagar_un_led(void)
 
 }
 
-// test prender y apagar todo
+// test prender todos los leds 
 void test_prender_todos(void)
 {
     leds_all_on(&leds_virtuales);
     TEST_ASSERT_EQUAL_UINT16(0xFF,leds_virtuales);
 }
-// test consultar el estado 
+
+// test consultar el estado de un led que este previamente encendido
+
+void test_consultar_estado_led_prendido(void)
+{
+    leds_turn_on(LED);
+    TEST_ASSERT_EQUAL_INT(1,led_state(LED));    
+}
